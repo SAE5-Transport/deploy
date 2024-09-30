@@ -1,0 +1,3 @@
+- name: "[DOCKER/MAIN] Include Debian specific installation tasks"
+  ansible.builtin.include_tasks: debian.yml
+  when: ansible_distribution == "Debian"
