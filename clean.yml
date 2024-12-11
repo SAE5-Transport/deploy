@@ -1,0 +1,5 @@
+- name: "clean"
+  hosts: docker_hosts
+  become: yes
+  roles:
+    - docker-clean

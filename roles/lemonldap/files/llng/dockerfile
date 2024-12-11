@@ -1,0 +1,8 @@
+FROM coudot/lemonldap-ng:2.20.1
+
+EXPOSE 80
+
+ENV LOGLEVEL "debug"
+
+COPY ./config/* /var/lib/lemonldap-ng/conf
+COPY ./lemonldap-ng.ini /etc/lemonldap-ng/lemonldap-ng.ini

@@ -1,0 +1,9 @@
+- name: "[LEMONLDAP/MAIN] Copy Docker Compose files"
+  ansible.builtin.copy:
+    dest: "/docker/compose/"
+    src: "../files/"
+
+- name: "[LEMONLDAP/MAIN] up compose"
+  community.docker.docker_compose_v2:
+    project_src: "/docker/compose/"
+    remove_orphans: yes

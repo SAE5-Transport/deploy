@@ -1,0 +1,29 @@
+- name: "[DOCKER-CLEAN/MAIN] Get running containers"
+  community.docker.docker_host_info:
+    containers: yes
+  register: docker_info
+
+- name: "[DOCKER-CLEAN/MAIN] Stop running containers"
+  community.docker.docker_container:
+    name: "{{ item }}"
+    state: stopped
+  loop: "{{ docker_info.containers | map(attribute='Id') | list }}"
+
+- name: "[DOCKER-CLEAN/MAIN] Remove docker containers"
+  ansible.builtin.shell: docker rm $(docker ps -a -q);
+  when: (docker_info.containers | length) != 0
+
+- name: "[DOCKER-CLEAN/MAIN] Remove docker volumes"
+  ansible.builtin.shell: docker volume rm $(docker volume ls -q)
+
+- name: "[DOCKER-CLEAN/MAIN] Get details of all images"
+  community.docker.docker_host_info:
+    images: yes
+    verbose_output: yes
+  register: image_info
+  
+- name: "[DOCKER-CLEAN/MAIN] Remove all images"
+  community.docker.docker_image:
+    name: "{{ item }}"
+    state: absent
+  loop: "{{ image_info.images | map(attribute='Id') | list }}"
