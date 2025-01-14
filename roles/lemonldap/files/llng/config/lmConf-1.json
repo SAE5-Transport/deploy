@@ -124,11 +124,11 @@
    "certificateResetByMailCeaAttribute" : "description",
    "certificateResetByMailCertificateAttribute" : "userCertificate;binary",
    "certificateResetByMailValidityDelay" : 0,
-   "cfgAuthor" : "dwho",
+   "cfgAuthor" : "admin",
    "cfgAuthorIP" : "10.10.47.148",
-   "cfgDate" : 1733930140,
+   "cfgDate" : 1734012981,
    "cfgLog" : "",
-   "cfgNum" : "5",
+   "cfgNum" : "6",
    "cfgVersion" : "2.20.1",
    "checkDevOpsCheckSessionAttributes" : 1,
    "checkDevOpsDisplayNormalizedHeaders" : 1,
@@ -180,7 +180,11 @@
    "dbiAuthTable" : "users",
    "dbiAuthUser" : "lemonldap",
    "dbiAuthnLevel" : 2,
-   "dbiExportedVars" : {},
+   "dbiExportedVars" : {
+      "email" : "email",
+      "name" : "name",
+      "username" : "username"
+   },
    "dbiPasswordMailCol" : "email",
    "dbiUserTable" : "users",
    "decryptValueRule" : 0,
@@ -195,15 +199,7 @@
    "eventQueueName" : "llng_events",
    "exportedHeaders" : {
       "auth.example.com" : {},
-      "manager.example.com" : {},
-      "test1.example.com" : {
-         "Auth-Groups" : "$groups",
-         "Auth-User" : "$uid"
-      },
-      "test2.example.com" : {
-         "Auth-Groups" : "$groups",
-         "Auth-User" : "$uid"
-      }
+      "manager.example.com" : {}
    },
    "exportedVars" : {},
    "ext2fActivation" : 0,
@@ -252,6 +248,7 @@
    "issuerDBGetRule" : 1,
    "issuerDBJitsiMeetTokensPath" : "^/jitsi/",
    "issuerDBJitsiMeetTokensRule" : 1,
+   "issuerDBOpenIDConnectActivation" : 1,
    "issuerDBOpenIDConnectPath" : "^/oauth2/",
    "issuerDBOpenIDConnectRule" : 1,
    "issuerDBOpenIDPath" : "^/openidserver/",
@@ -308,17 +305,9 @@
       },
       "manager.example.com" : {
          "(?#Configuration)^/(.*?\\.(fcgi|psgi)/)?(manager\\.html|confs|prx/|$)" : "inGroup(\"timelords\")",
-         "(?#Notifications)/(.*?\\.(fcgi|psgi)/)?notifications" : "inGroup(\"timelords\") or $uid eq \"rtyler\"",
-         "(?#Sessions)/(.*?\\.(fcgi|psgi)/)?sessions" : "inGroup(\"timelords\") or $uid eq \"rtyler\"",
-         "default" : "inGroup(\"timelords\") or $uid eq \"rtyler\""
-      },
-      "test1.example.com" : {
-         "^/logout" : "logout_sso",
-         "default" : "accept"
-      },
-      "test2.example.com" : {
-         "^/logout" : "logout_sso",
-         "default" : "accept"
+         "(?#Notifications)/(.*?\\.(fcgi|psgi)/)?notifications" : "inGroup(\"timelords\")",
+         "(?#Sessions)/(.*?\\.(fcgi|psgi)/)?sessions" : "inGroup(\"timelords\")",
+         "default" : "inGroup(\"timelords\")"
       }
    },
    "loginHistoryEnabled" : 1,
@@ -366,26 +355,83 @@
    "notifyDeleted" : 1,
    "nullAuthnLevel" : 0,
    "oidcAuthnLevel" : 1,
-   "oidcOPMetaDataExportedVars" : null,
+   "oidcOPMetaDataExportedVars" : {},
    "oidcOPMetaDataJSON" : {},
    "oidcOPMetaDataJWKS" : {},
    "oidcOPMetaDataOptions" : {},
    "oidcRPCallbackGetParam" : "openidconnectcallback",
-   "oidcRPMetaDataExportedVars" : {},
+   "oidcRPMetaDataExportedVars" : {
+      "hexatransit" : {
+         "email" : "email",
+         "name" : "name",
+         "preferred_username" : "username"
+      }
+   },
    "oidcRPMetaDataMacros" : null,
-   "oidcRPMetaDataOptions" : {},
-   "oidcRPMetaDataOptionsExtraClaims" : null,
+   "oidcRPMetaDataOptions" : {
+      "hexatransit" : {
+         "oidcRPMetaDataOptionsAccessTokenClaims" : 0,
+         "oidcRPMetaDataOptionsAccessTokenEncContentEncAlg" : "A256GCM",
+         "oidcRPMetaDataOptionsAccessTokenEncKeyMgtAlg" : "",
+         "oidcRPMetaDataOptionsAccessTokenJWT" : 0,
+         "oidcRPMetaDataOptionsAccessTokenSignAlg" : "RS256",
+         "oidcRPMetaDataOptionsAllowClientCredentialsGrant" : 0,
+         "oidcRPMetaDataOptionsAllowOffline" : 0,
+         "oidcRPMetaDataOptionsAllowPasswordGrant" : 0,
+         "oidcRPMetaDataOptionsAuthMethod" : "",
+         "oidcRPMetaDataOptionsAuthRequiredForAuthorize" : 0,
+         "oidcRPMetaDataOptionsAuthnRequireNonce" : 1,
+         "oidcRPMetaDataOptionsAuthnRequireState" : 1,
+         "oidcRPMetaDataOptionsBypassConsent" : 0,
+         "oidcRPMetaDataOptionsClientID" : "3xoAi23hZ2rcEmFjzEFOJonrBgZgjR7s yV9t9HSlQFaOYdYEFekY78zjk02L1XoR 0vdWPl6SjyqWAccCw1AOUorz710vf9QL 9pcl1pnPEFr5DAurEbH7a8lh1NzXo9eP HtDsXLMKy0zb57RKccXY8z970x0JLLBH vFt523p6b9zMt7BCmOJ1RjMdURDDDQz7 7fstR05ux0D0SFGbHtRIyLeSSLI2I4rR LbzB8ik1QN4QKUo3z9O1of2bBXJPhNVN a7Gn191nunqWfEkdy3nWBr803grNVnQ2 OVC91WaLcDV5zO4q8kPd9U37unoY47VM",
+         "oidcRPMetaDataOptionsClientSecret" : "4X5U1J3Q93AnmyRpYTYhhzzxPtPLBmiN ipgADA4TXIYHr46sePC2myWYwknIJMiF 56Qr86qrZx61ADOEkYJCHTUsoykiPcbU T0Jooq2z8plj42QR3KTMOB8REiizBsiP RDyjfrFxe9H1lQ1Ty2IG8WxKMhO0rv3m PDt2g7yrmSjVtIXYqBwSK5nwpVR3olJj zTq7JsoNupYtaEQFkR21jGxk9dZnpMcR UGwEf8jmryZ6KKil0q2XvSitAUyrBQXM Q2We1Q2O97hz7QmCLcTsLsuVMMFmo10H vLOwuuWedguwR3ahbPOocwSMrpHrDbIJ",
+         "oidcRPMetaDataOptionsIDTokenForceClaims" : 0,
+         "oidcRPMetaDataOptionsIDTokenSignAlg" : "RS256",
+         "oidcRPMetaDataOptionsIdTokenEncContentEncAlg" : "A256GCM",
+         "oidcRPMetaDataOptionsIdTokenEncKeyMgtAlg" : "",
+         "oidcRPMetaDataOptionsLogoutBypassConfirm" : 0,
+         "oidcRPMetaDataOptionsLogoutEncContentEncAlg" : "A256GCM",
+         "oidcRPMetaDataOptionsLogoutEncKeyMgtAlg" : "",
+         "oidcRPMetaDataOptionsLogoutSessionRequired" : 0,
+         "oidcRPMetaDataOptionsLogoutType" : "front",
+         "oidcRPMetaDataOptionsPostLogoutRedirectUris" : "",
+         "oidcRPMetaDataOptionsPublic" : 1,
+         "oidcRPMetaDataOptionsRedirectUris" : "http://localhost/test",
+         "oidcRPMetaDataOptionsRefreshToken" : 0,
+         "oidcRPMetaDataOptionsRefreshTokenRotation" : 0,
+         "oidcRPMetaDataOptionsRequirePKCE" : 0,
+         "oidcRPMetaDataOptionsUserInfoEncContentEncAlg" : "A256GCM",
+         "oidcRPMetaDataOptionsUserInfoEncKeyMgtAlg" : "",
+         "oidcRPMetaDataOptionsUserInfoSignAlg" : "",
+         "oidcRPMetaDataOptionsUserinfoRequireHeaderToken" : 0
+      }
+   },
+   "oidcRPMetaDataOptionsExtraClaims" : {
+      "hexatransit" : {
+         "address" : "street_address locality region postal_code country",
+         "email" : "email email_verified",
+         "phone" : "phone_number phone_number_verified",
+         "profile" : "name family_name given_name middle_name nickname preferred_username profile picture website gender birthdate zoneinfo locale updated_at"
+      }
+   },
    "oidcRPMetaDataScopeRules" : null,
    "oidcRPStateTimeout" : 600,
    "oidcServiceAccessTokenExpiration" : 3600,
    "oidcServiceAllowAuthorizationCodeFlow" : 1,
+   "oidcServiceAllowDynamicRegistration" : 0,
+   "oidcServiceAllowHybridFlow" : 0,
+   "oidcServiceAllowImplicitFlow" : 0,
+   "oidcServiceAllowOnlyDeclaredScopes" : 1,
    "oidcServiceAuthorizationCodeExpiration" : 60,
    "oidcServiceDynamicRegistrationExportedVars" : {},
    "oidcServiceDynamicRegistrationExtraClaims" : {},
    "oidcServiceEncAlgorithmAlg" : "RSA-OAEP",
    "oidcServiceEncAlgorithmEnc" : "A256GCM",
+   "oidcServiceHideMetadata" : 0,
    "oidcServiceIDTokenExpiration" : 3600,
-   "oidcServiceIgnoreScopeForClaims" : 1,
+   "oidcServiceIgnoreScopeForClaims" : 0,
+   "oidcServiceKeyIdEnc" : "eDB3qPNgkBTAed5Qwr7gUQ",
+   "oidcServiceKeyIdSig" : "WGLJcftPSEFRZla2J6SM/w",
    "oidcServiceKeyTypeEnc" : "RSA",
    "oidcServiceKeyTypeSig" : "RSA",
    "oidcServiceMetaDataAuthnContext" : {
@@ -409,6 +455,10 @@
    "oidcServiceOfflineSessionExpiration" : 2592000,
    "oidcServiceOldKeyTypeEnc" : "RSA",
    "oidcServiceOldKeyTypeSig" : "RSA",
+   "oidcServicePrivateKeyEnc" : "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDFA8opEGwkq/fC\nE6m9W9Ay20tQuVqqf0DCA/R//vsChil3FQsUMJb1JmtJ112RfRCfD38Wa+ACW19K\nqXCrbDhJARU7zXFLLnLuZ4Cwxgqtl351EI6Qa4MNc4YQCsQmjwvlBgAj8rJuD8t7\niNUCUSswIMV3QeZP1UOy4o5s9XpTkp5OZNIjUcHmKC84O5bGn8HHahHAwGP7I7X2\nED5FEbwrrq6D/IufzpU+WxyAnZH1CJK/N4W3xAj9bHU9w0R11BkQjoNnKTbRsLU1\nbPLM5D+M1mNSP7w2gC0bGgW/y8Q+8svMmKYybYbqa/aGmRZY9Y+OLZ7V7mCzrPRl\nC4bIy+FHAgMBAAECggEADxp8GuDOQZNzZ3alb8Wu9NnN8M7SOLmPsoVQxFKSVf5e\nBb81vbhUjPpYhZfT7a2LotNdIqVmI21zeor51GfJUC4b6B1BqbSnt/IfB1jvWaEr\nCc4ZTSYI18pQRUDmCloIseffW+IlCVNUU1Cemn0JgA41xS+RTfPOAFPmUku8CIBV\nbcQB/XU8if/SNvik8foqsy09xp4pmWpHQJdneAr7blTWf9e7JHAP6fRLsEClaaCl\nmUwYlC/Je36Ken3wOwLTozC7ogZp0cYYj/Lpm7b7N/BsJzIZEiBbHmH8leIuHT8t\nWopdZcaycaaa6fqaJ8/nazy25w+SOilFCMGwNJEU9QKBgQD/V7ZJZ0io27SMWtL9\nHKSMV2DNeL7dN/OLNbYd38NHk+VKADHJouzcySJU+0jdYccBOFNyW/XUUSS0eNC/\ngTEH0J56+3BMzQy7tQV9Wzh4oU3Pn+yQXMIMBKgjp9DR3kfBggnNJ44H6tkViRFn\ny75FjDP3Kg0/Wh4xDhqTyi9akwKBgQDFhaK72fE8EWfQAONX8clOuibBHdhLNeiA\nI7QvJkd54nZwqqQX2ECnppxaSDY6BH9sWbxqGfaPnGyLAMND8yGEuh1BPO+amOLe\nTGpnFehDM0K7TpzWOEqC4ZVfwrrJpNIkXlNNlVxFQi9LhZWIzspWmDbGfABQ9nYZ\nmC0VxBfq/QKBgQCT1vwTCfr20aZ6sUeCB2h6XUkODoAr425eRq34JAuT0Nyr+Ora\nvTt5Jfd7zrZEf41SdoNSLk5qLMUcvOrYRnvV84Me36AIx5w8vjW8e+l5ZqN/uC+m\n8h3kCXo0ksCEErfnIVx9bQ5+JQqlvmPWfg/fgqq/y5g5+vqKGolm0mSSgwKBgQC2\nnLw9DFt4+2aM6aVF82X4ASY/OIZ10lsnzNqTFMLULsjtlPWsjeQIm4LF/SkVLn9X\n/waw2VwYnbfEM2pT8f41JZRScjHbLing96kPsTNQnZ2+agmaC+TnaAOfyvrB3j3i\nHcrKWaI67dun6NK87uImeQd7Lb1lHNdHBmf4TZkHSQKBgDXOATDjnKW+GCOLjZE2\nnvbxxfKm1k3zTFetPUkva4OGIdOqjNYZOfSGUCFTgtEzY+wIvy3bFMYf19kGeWia\nrZQvS7ODd82vyhTHJ48bsPF0/q1Xxlv2Q2HbMgUip86d85gonIb2hhDK8p/STFWa\n1V5VNoqUMUmyU9Nz9Xtk4dzH\n-----END PRIVATE KEY-----\n",
+   "oidcServicePrivateKeySig" : "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDmeU/8k3+DHEWu\nfDokkGGjxXnS2m2aTaJxN5a2MRvcd/jfz7xS3aC4M1bpWySCjpUeZash+Y1hs6q0\noh4W2bEwvYOOGwYhVzHAUtAMbAGH140sE4A5jir5GIvi7PhaFFlvQo+TxOOs1aqk\n3xYq9IiltdikvIolBkrk2rYkkLoCiVe0A4eXuuwYy6AS3ZKKV++D8JzxRDO5Tsj2\nIM/yz42BU3FFjiLhgvVJXFQU7n9deInafTp/ROsN7fJ4+K3McMXUSC8vCEmYgxpz\neYwgDhxeXf5LK5TCJ7205KRiustSuvmOhnDvWMH11vt3V5Vjp6HRQdY324VHtHBV\nPrpzWm8RAgMBAAECggEAERJPKDFAap9baFFdLixVVdVGEOYAjy4tIuVASuEILwm3\nm9PDn5YOi65eg50DxI7tVpR8e2EEhbDnq1xvIvf/iGcf7uoAsiixr6JYCkotcoOM\nelq8bqb29xSyzJLgfNhRMpepJ8PXrcugNE5Y/O1i5MwQ5CJEuk7abn671f60DzAQ\nqhNoLaav+34fbwID2zCSPSOTuLg0slx6GhEItHTtf4z3xJAafLdf5GPSElT3+e2D\nyNX3uSUlZZYkVvBcdTimbFHbHH3qosbQGK1u6a34UhJ0vQ1SNKMhWEHMZXMaJRgR\nTwkTT3aNEBVhXSlipW6u+GtoGrJLAo1zhRt+1imTRQKBgQD9MfaOYqY9tbKiGU+L\nSdK1Oh6rfrUEVVZpHsGYkauk+t8eMKSv2Ihc+rx3jqOyTdi8DVp+JngQCddWZnuF\nzvMImoLBH/6QUsVPd91h0lpUXnE8yHsIQqLUmdVsmFuEyHA9CYXHm1/pn03DZojS\nxOVfQzF/TtmP5moNDvnMuQ2p7QKBgQDpBun5dqxYhjSCviEG4GDwztZkuqytbd3V\nMoo/Ui7JkPR2uHAwtS5C3thDmMl7VLVLrPQojLvmG+IWya5uBeETj0RfS+OMt+T5\nKF0BXtWUjdSIsAac22tetjZ+TocBukZADvFXU6L2xuIXALAvDK1mQX1WjH0ZITFR\nKUFQlvMlNQKBgExVOc3nc9L66mXwV4jYssusP/7X7l7mE20Rtq/2itbsQ0Poyl2x\nXDsb5KHuwO9KhOL866FIm73KGb+UmfzXTXH0kyMCME72hUHWE0ogjtcMufrnPiBZ\nZpnN3wgkTsMTYrMkIc7xytK2Ek2spedVMQmtSkjlTrYRczuInkrYJ4RpAoGAT58u\nKTAUeXb50EaY0Fmwpfd2qBpk0Cl/J87KEBLLq9HcxggFRY9SzESKjqZRCdQK0l25\nW3Wi6mBSo0isUimuG1nTmeA7UySulzfkd4ho4AaKPV4wFD6g9E68VfINDVkRkefJ\nLPaF815HeGaizKC/SvZLllwQjpqZ2EqJZ7j8QZUCgYB3XaNT9GBxoQxwxFnHP12S\nKsb+QrFyc4tvPS8U9eDMI63roqG2TPu6ZJRPAgwBuxrYfLPZrtSkQ3ZujqaNDKIm\nfT+s3Ei3Aod7spLgrFxDAPfUTnoZftca5ZZLDrey5JSpBgoLvBmLXe248xxsm81G\nu41ni5OQ15bH0QzXQ2DBRw==\n-----END PRIVATE KEY-----\n",
+   "oidcServicePublicKeyEnc" : "-----BEGIN CERTIFICATE-----\nMIICsjCCAZqgAwIBAgIEWWi0fTANBgkqhkiG9w0BAQsFADAbMRkwFwYDVQQDDBBh\ndXRoLmV4YW1wbGUuY29tMB4XDTI0MTIxMjEzMDEzOFoXDTQ0MTIwNzEzMDEzOFow\nGzEZMBcGA1UEAwwQYXV0aC5leGFtcGxlLmNvbTCCASIwDQYJKoZIhvcNAQEBBQAD\nggEPADCCAQoCggEBAMUDyikQbCSr98ITqb1b0DLbS1C5Wqp/QMID9H/++wKGKXcV\nCxQwlvUma0nXXZF9EJ8PfxZr4AJbX0qpcKtsOEkBFTvNcUsucu5ngLDGCq2XfnUQ\njpBrgw1zhhAKxCaPC+UGACPysm4Py3uI1QJRKzAgxXdB5k/VQ7Lijmz1elOSnk5k\n0iNRweYoLzg7lsafwcdqEcDAY/sjtfYQPkURvCuuroP8i5/OlT5bHICdkfUIkr83\nhbfECP1sdT3DRHXUGRCOg2cpNtGwtTVs8szkP4zWY1I/vDaALRsaBb/LxD7yy8yY\npjJthupr9oaZFlj1j44tntXuYLOs9GULhsjL4UcCAwEAATANBgkqhkiG9w0BAQsF\nAAOCAQEASWJRCX950UmgqV5WMQMzdSLv56PDHAz3AhWnUXlFgCZ3H6q9wluF9WBz\njrGVT2ldxp4qi3z8oaCcr9h476vdZL6RjskfZk5bOqJ8kGdZ2ZUQGKgQZ+zP3wfv\nfZ+i4y7FfWcleHaRkPMR9c4ikn2oYeHtH372QRJRNoUgqff92YbWfr9OwM8kf4Pl\nYlB8EFTF96n7Sah51rCYwoR3lhpoNof4WdUCQ5vHKVQqg7O+DO4bjvFcPfkcc+Ay\ngV9VQ0LQA7ghW4inp2uEnxshWKmfCGjPcDU9/fqTTohljNOXnIqxSocUmOhQXyXo\ngWh+zhkopTcWykCKs/qZczjmTmeTow==\n-----END CERTIFICATE-----\n",
+   "oidcServicePublicKeySig" : "-----BEGIN CERTIFICATE-----\nMIICszCCAZugAwIBAgIFAIBqDfwwDQYJKoZIhvcNAQELBQAwGzEZMBcGA1UEAwwQ\nYXV0aC5leGFtcGxlLmNvbTAeFw0yNDEyMTIxMzAxMzJaFw00NDEyMDcxMzAxMzJa\nMBsxGTAXBgNVBAMMEGF1dGguZXhhbXBsZS5jb20wggEiMA0GCSqGSIb3DQEBAQUA\nA4IBDwAwggEKAoIBAQDmeU/8k3+DHEWufDokkGGjxXnS2m2aTaJxN5a2MRvcd/jf\nz7xS3aC4M1bpWySCjpUeZash+Y1hs6q0oh4W2bEwvYOOGwYhVzHAUtAMbAGH140s\nE4A5jir5GIvi7PhaFFlvQo+TxOOs1aqk3xYq9IiltdikvIolBkrk2rYkkLoCiVe0\nA4eXuuwYy6AS3ZKKV++D8JzxRDO5Tsj2IM/yz42BU3FFjiLhgvVJXFQU7n9deIna\nfTp/ROsN7fJ4+K3McMXUSC8vCEmYgxpzeYwgDhxeXf5LK5TCJ7205KRiustSuvmO\nhnDvWMH11vt3V5Vjp6HRQdY324VHtHBVPrpzWm8RAgMBAAEwDQYJKoZIhvcNAQEL\nBQADggEBAOBf/Fm+c5Oi1exFSJnJzWapmbgy1o8CjdsHSOD4BY1v+VPyz/r7ShDx\nzZErhMd/KyywgySuW1kHZ8mQmQ/S2moT2+XZmZhDcl/fJmcYyNMzvo6kGY0AgWQb\nS7gPXyk4d7TyvNAB4leQynuoJ2Hrfq2zwe9cWTHl4pSv+78rlHxNMwOSWlQHFCJP\n+i0qCWlq73cd9V/o9bE9r1tsNa/d+QDiGfc2mwvMGiwbL7ig6DfB618TAKa2OXsl\nXj1CnAfOkOed3zOaEmPQdN7fIPzixqWdrFikomprQY3PguufXDWMzOnrW67Ci6RG\nh4Xt46izd+sl3QIv7DUjo5/R1NxheWc=\n-----END CERTIFICATE-----\n",
    "oidcStorageOptions" : {},
    "okta2fActivation" : 0,
    "openIdAuthnLevel" : 1,
@@ -465,9 +515,7 @@
    "portalUserAttr" : "_user",
    "post" : {
       "auth.example.com" : {},
-      "manager.example.com" : {},
-      "test1.example.com" : {},
-      "test2.example.com" : {}
+      "manager.example.com" : {}
    },
    "proxyAuthServiceChoiceParam" : "lmAuth",
    "proxyAuthnLevel" : 2,
@@ -479,7 +527,7 @@
    "radiusRequestAttributes" : {},
    "randomPasswordRegexp" : "[A-Z]{3}[a-z]{5}.\\d{2}",
    "redirectFormMethod" : "get",
-   "registerDB" : "Null",
+   "registerDB" : "Demo",
    "registerTimeout" : 0,
    "reloadTimeout" : 5,
    "reloadUrls" : {
@@ -588,9 +636,7 @@
    "userPivot" : "username",
    "vhostOptions" : {
       "auth.example.com" : {},
-      "manager.example.com" : {},
-      "test1.example.com" : {},
-      "test2.example.com" : {}
+      "manager.example.com" : {}
    },
    "viewerHiddenKeys" : "samlIDPMetaDataNodes, samlSPMetaDataNodes",
    "webIDAuthnLevel" : 1,

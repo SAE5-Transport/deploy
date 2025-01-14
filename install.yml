@@ -2,6 +2,6 @@
   hosts: docker_hosts
   become: yes
   roles:
-    # - docker
-    # - docker-clean
+    - docker
+    - docker-clean
     - lemonldap

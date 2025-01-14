@@ -17,3 +17,9 @@ in [hosts.yml](./inventory/hosts.yml), change IP to ur ip
 ```
 ansible-playbook -i ./inventory/hosts.yml install.yml
 ```
+
+### Feat:
+
+#### Lemonldap : Auth
+
+- Manager: Admin/admin
