@@ -12,6 +12,7 @@ services:
       - "5432:5432"
     volumes:
       - postgresql:/var/lib/postgresql/data
+    restart: always
     healthcheck:
       test: ["CMD-SHELL", "pg_isready"]
       interval: 10s
@@ -23,6 +24,7 @@ services:
     image: llng
     ports:
       - "80:80"
+    restart: always
     depends_on:
       db:
         condition: service_healthy
