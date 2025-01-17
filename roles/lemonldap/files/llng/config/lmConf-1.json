@@ -20,7 +20,7 @@
                "display" : "auto",
                "logo" : "demo.png",
                "name" : "Application Test 1",
-               "uri" : "http://test1.example.com/"
+               "uri" : "http://test1.20-199-76-32.nip.io/"
             },
             "type" : "application"
          },
@@ -30,7 +30,7 @@
                "display" : "auto",
                "logo" : "thumbnail.png",
                "name" : "Application Test 2",
-               "uri" : "http://test2.example.com/"
+               "uri" : "http://test2.20-199-76-32.nip.io/"
             },
             "type" : "application"
          },
@@ -44,7 +44,7 @@
                "display" : "auto",
                "logo" : "configure.png",
                "name" : "WebSSO Manager",
-               "uri" : "http://manager.example.com/manager.html"
+               "uri" : "http://manager.20-199-76-32.nip.io/manager.html"
             },
             "type" : "application"
          },
@@ -54,7 +54,7 @@
                "display" : "auto",
                "logo" : "database.png",
                "name" : "Notifications Explorer",
-               "uri" : "http://manager.example.com/notifications.html"
+               "uri" : "http://manager.20-199-76-32.nip.io/notifications.html"
             },
             "type" : "application"
          },
@@ -64,7 +64,7 @@
                "display" : "auto",
                "logo" : "database.png",
                "name" : "Sessions Explorer",
-               "uri" : "http://manager.example.com/sessions.html"
+               "uri" : "http://manager.20-199-76-32.nip.io/sessions.html"
             },
             "type" : "application"
          },
@@ -78,7 +78,7 @@
                "display" : "on",
                "logo" : "help.png",
                "name" : "Local documentation",
-               "uri" : "http://manager.example.com/doc/"
+               "uri" : "http://manager.20-199-76-32.nip.io/doc/"
             },
             "type" : "application"
          },
@@ -125,10 +125,10 @@
    "certificateResetByMailCertificateAttribute" : "userCertificate;binary",
    "certificateResetByMailValidityDelay" : 0,
    "cfgAuthor" : "admin",
-   "cfgAuthorIP" : "10.10.47.148",
-   "cfgDate" : 1734012981,
+   "cfgAuthorIP" : "193.48.143.174",
+   "cfgDate" : 1737026145,
    "cfgLog" : "",
-   "cfgNum" : "6",
+   "cfgNum" : "10",
    "cfgVersion" : "2.20.1",
    "checkDevOpsCheckSessionAttributes" : 1,
    "checkDevOpsDisplayNormalizedHeaders" : 1,
@@ -195,11 +195,11 @@
       "uid" : "uid"
    },
    "displaySessionId" : 1,
-   "domain" : "example.com",
+   "domain" : "20-199-76-32.nip.io",
    "eventQueueName" : "llng_events",
    "exportedHeaders" : {
-      "auth.example.com" : {},
-      "manager.example.com" : {}
+      "auth.20-199-76-32.nip.io" : {},
+      "manager.20-199-76-32.nip.io" : {}
    },
    "exportedVars" : {},
    "ext2fActivation" : 0,
@@ -298,12 +298,12 @@
    },
    "locationDetectGeoIpLanguages" : "en, fr",
    "locationRules" : {
-      "auth.example.com" : {
+      "auth.20-199-76-32.nip.io" : {
          "(?#checkUser)^/checkuser" : "inGroup(\"timelords\")",
          "(?#errors)^/lmerror/" : "accept",
          "default" : "accept"
       },
-      "manager.example.com" : {
+      "manager.20-199-76-32.nip.io" : {
          "(?#Configuration)^/(.*?\\.(fcgi|psgi)/)?(manager\\.html|confs|prx/|$)" : "inGroup(\"timelords\")",
          "(?#Notifications)/(.*?\\.(fcgi|psgi)/)?notifications" : "inGroup(\"timelords\")",
          "(?#Sessions)/(.*?\\.(fcgi|psgi)/)?sessions" : "inGroup(\"timelords\")",
@@ -323,7 +323,7 @@
    "mail2fActivation" : 0,
    "mail2fCodeRegex" : "\\d{6}",
    "mailCharset" : "utf-8",
-   "mailFrom" : "noreply@example.com",
+   "mailFrom" : "noreply@20-199-76-32.nip.io",
    "mailSessionKey" : "mail",
    "mailTimeout" : 0,
    "managerDn" : "",
@@ -367,7 +367,9 @@
          "preferred_username" : "username"
       }
    },
-   "oidcRPMetaDataMacros" : null,
+   "oidcRPMetaDataMacros" : {
+      "hexatransit" : {}
+   },
    "oidcRPMetaDataOptions" : {
       "hexatransit" : {
          "oidcRPMetaDataOptionsAccessTokenClaims" : 0,
@@ -375,16 +377,16 @@
          "oidcRPMetaDataOptionsAccessTokenEncKeyMgtAlg" : "",
          "oidcRPMetaDataOptionsAccessTokenJWT" : 0,
          "oidcRPMetaDataOptionsAccessTokenSignAlg" : "RS256",
-         "oidcRPMetaDataOptionsAllowClientCredentialsGrant" : 0,
+         "oidcRPMetaDataOptionsAllowClientCredentialsGrant" : 1,
          "oidcRPMetaDataOptionsAllowOffline" : 0,
-         "oidcRPMetaDataOptionsAllowPasswordGrant" : 0,
+         "oidcRPMetaDataOptionsAllowPasswordGrant" : 1,
          "oidcRPMetaDataOptionsAuthMethod" : "",
          "oidcRPMetaDataOptionsAuthRequiredForAuthorize" : 0,
          "oidcRPMetaDataOptionsAuthnRequireNonce" : 1,
          "oidcRPMetaDataOptionsAuthnRequireState" : 1,
          "oidcRPMetaDataOptionsBypassConsent" : 0,
-         "oidcRPMetaDataOptionsClientID" : "3xoAi23hZ2rcEmFjzEFOJonrBgZgjR7s yV9t9HSlQFaOYdYEFekY78zjk02L1XoR 0vdWPl6SjyqWAccCw1AOUorz710vf9QL 9pcl1pnPEFr5DAurEbH7a8lh1NzXo9eP HtDsXLMKy0zb57RKccXY8z970x0JLLBH vFt523p6b9zMt7BCmOJ1RjMdURDDDQz7 7fstR05ux0D0SFGbHtRIyLeSSLI2I4rR LbzB8ik1QN4QKUo3z9O1of2bBXJPhNVN a7Gn191nunqWfEkdy3nWBr803grNVnQ2 OVC91WaLcDV5zO4q8kPd9U37unoY47VM",
-         "oidcRPMetaDataOptionsClientSecret" : "4X5U1J3Q93AnmyRpYTYhhzzxPtPLBmiN ipgADA4TXIYHr46sePC2myWYwknIJMiF 56Qr86qrZx61ADOEkYJCHTUsoykiPcbU T0Jooq2z8plj42QR3KTMOB8REiizBsiP RDyjfrFxe9H1lQ1Ty2IG8WxKMhO0rv3m PDt2g7yrmSjVtIXYqBwSK5nwpVR3olJj zTq7JsoNupYtaEQFkR21jGxk9dZnpMcR UGwEf8jmryZ6KKil0q2XvSitAUyrBQXM Q2We1Q2O97hz7QmCLcTsLsuVMMFmo10H vLOwuuWedguwR3ahbPOocwSMrpHrDbIJ",
+         "oidcRPMetaDataOptionsClientID" : "faknioafioanfioanfoanfoienriofcanjabfoinafjbfaf",
+         "oidcRPMetaDataOptionsClientSecret" : "fokafpaofjkopajfoiajfoiancoianiocnaoincioa",
          "oidcRPMetaDataOptionsIDTokenForceClaims" : 0,
          "oidcRPMetaDataOptionsIDTokenSignAlg" : "RS256",
          "oidcRPMetaDataOptionsIdTokenEncContentEncAlg" : "A256GCM",
@@ -395,8 +397,8 @@
          "oidcRPMetaDataOptionsLogoutSessionRequired" : 0,
          "oidcRPMetaDataOptionsLogoutType" : "front",
          "oidcRPMetaDataOptionsPostLogoutRedirectUris" : "",
-         "oidcRPMetaDataOptionsPublic" : 1,
-         "oidcRPMetaDataOptionsRedirectUris" : "http://localhost/test",
+         "oidcRPMetaDataOptionsPublic" : 0,
+         "oidcRPMetaDataOptionsRedirectUris" : "com.uwucorp.hexatransit://redirect",
          "oidcRPMetaDataOptionsRefreshToken" : 0,
          "oidcRPMetaDataOptionsRefreshTokenRotation" : 0,
          "oidcRPMetaDataOptionsRequirePKCE" : 0,
@@ -414,7 +416,9 @@
          "profile" : "name family_name given_name middle_name nickname preferred_username profile picture website gender birthdate zoneinfo locale updated_at"
       }
    },
-   "oidcRPMetaDataScopeRules" : null,
+   "oidcRPMetaDataScopeRules" : {
+      "hexatransit" : {}
+   },
    "oidcRPStateTimeout" : 600,
    "oidcServiceAccessTokenExpiration" : 3600,
    "oidcServiceAllowAuthorizationCodeFlow" : 1,
@@ -491,7 +495,7 @@
       "LockDirectory" : "/var/lib/lemonldap-ng/psessions/lock"
    },
    "port" : -1,
-   "portal" : "http://auth.example.com/",
+   "portal" : "http://auth.20-199-76-32.nip.io/",
    "portalAntiFrame" : 1,
    "portalCheckLogins" : 1,
    "portalDisplayAppslist" : 1,
@@ -514,8 +518,8 @@
    "portalSkinRules" : {},
    "portalUserAttr" : "_user",
    "post" : {
-      "auth.example.com" : {},
-      "manager.example.com" : {}
+      "auth.20-199-76-32.nip.io" : {},
+      "manager.20-199-76-32.nip.io" : {}
    },
    "proxyAuthServiceChoiceParam" : "lmAuth",
    "proxyAuthnLevel" : 2,
@@ -531,7 +535,7 @@
    "registerTimeout" : 0,
    "reloadTimeout" : 5,
    "reloadUrls" : {
-      "localhost" : "http://reload.example.com/reload"
+      "localhost" : "http://reload.20-199-76-32.nip.io/reload"
    },
    "rememberAuthChoiceRule" : 0,
    "rememberCookieName" : "llngrememberauthchoice",
@@ -539,8 +543,8 @@
    "rememberTimer" : 5,
    "remoteGlobalStorage" : "Lemonldap::NG::Common::Apache::Session::SOAP",
    "remoteGlobalStorageOptions" : {
-      "ns" : "http://auth.example.com/Lemonldap/NG/Common/PSGI/SOAPService",
-      "proxy" : "http://auth.example.com/sessions"
+      "ns" : "http://auth.20-199-76-32.nip.io/Lemonldap/NG/Common/PSGI/SOAPService",
+      "proxy" : "http://auth.20-199-76-32.nip.io/sessions"
    },
    "requireToken" : 1,
    "rest2fActivation" : 0,
@@ -574,7 +578,7 @@
    "samlNameIDFormatMapX509" : "mail",
    "samlOrganizationDisplayName" : "Example",
    "samlOrganizationName" : "Example",
-   "samlOrganizationURL" : "http://www.example.com",
+   "samlOrganizationURL" : "http://www.20-199-76-32.nip.io",
    "samlOverrideIDPEntityID" : "",
    "samlRelayStateTimeout" : 600,
    "samlSPMetaDataExportedAttributes" : null,
@@ -635,8 +639,8 @@
    "userDB" : "DBI",
    "userPivot" : "username",
    "vhostOptions" : {
-      "auth.example.com" : {},
-      "manager.example.com" : {}
+      "auth.20-199-76-32.nip.io" : {},
+      "manager.20-199-76-32.nip.io" : {}
    },
    "viewerHiddenKeys" : "samlIDPMetaDataNodes, samlSPMetaDataNodes",
    "webIDAuthnLevel" : 1,
