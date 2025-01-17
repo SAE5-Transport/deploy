@@ -1,3 +1,8 @@
+- name: "[LEMONLDAP/MAIN] Remove Docker Compose files"
+  ansible.builtin.file:
+    state: absent
+    path: "/docker/compose/"
+
 - name: "[LEMONLDAP/MAIN] Copy Docker Compose files"
   ansible.builtin.copy:
     dest: "/docker/compose/"
