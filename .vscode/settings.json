@@ -3,5 +3,5 @@
         "https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/tasks": "file:///home/user/Documents/GitHub/SAE5/deploy/roles/docker/tasks/debian.yml",
         "https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/inventory.json": "file:///home/user/Documents/GitHub/SAE5/deploy/inventory/hosts.yml"
     },
-    "ansible.python.interpreterPath": "/bin/python"
+    "ansible.python.interpreterPath": "/home/user/Documents/GitHub/SAE5/deploy/.venv/bin/python"
 }
