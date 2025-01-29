@@ -22,4 +22,33 @@ ansible-playbook -i ./inventory/hosts.yml install.yml
 
 #### Lemonldap : Auth
 
-- Manager: Admin/admin
+#### Lemonldap : scopes
+
++ Openid
++ address : 
+    * [ ] street_address
+    * [ ] locality
+    * [ ] region
+    * [ ] postal_code
+    * [ ] country
++ email : 
+    * [x] email 
+    * [x] email_verified
++ phone : 
+    * [ ] phone_number 
+    * [ ] phone_number_verified
++ profile : 
+    * [x] name 
+    * [x] family_name 
+    * [x] given_name 
+    * [x] middle_name 
+    * [x] nickname 
+    * [x] preferred_username 
+    * [x] profile 
+    * [x] picture 
+    * [x] website 
+    * [x] gender 
+    * [x] birthdate 
+    * [x] zoneinfo 
+    * [x] locale 
+    * [x] updated_at

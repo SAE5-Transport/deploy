@@ -173,7 +173,7 @@
    "cspStyle" : "'self'",
    "customAddParams" : {},
    "customPluginsParams" : {},
-   "dbiAuthChain" : "dbi:Pg:database=lemonldap;host=compose-db-1;port=5432;",
+   "dbiAuthChain" : "dbi:Pg:database=lemonldap;host=lemonldap-db-1;port=5432;",
    "dbiAuthLoginCol" : "username",
    "dbiAuthPassword" : "lemonldap",
    "dbiAuthPasswordCol" : "password",
@@ -202,6 +202,7 @@
       "manager.20-199-76-32.nip.io" : {}
    },
    "exportedVars" : {
+      "birthdate": "birthdate",
       "country" : "country",
       "created_at" : "created_at",
       "email" : "email",
