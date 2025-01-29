@@ -31,10 +31,4 @@
         * zoneinfo 
         * locale 
         * updated_at
-    + identite_pivot
-        * Nom de naissance
-        * Prénoms
-        * Sexe
-        * Date de naissance
-        * Code géographique INSEE de la ville de naissance
-        * Code géographique INSEE du pays de naissance
+    + MDP:
