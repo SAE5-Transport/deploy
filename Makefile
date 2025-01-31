@@ -1,0 +1,8 @@
+venv:
+	python -m venv .venv
+	.venv/bin/pip install --upgrade pip
+	.venv/bin/pip install -r requirements.txt
+
+prod:
+	cd roles/hexatransit-app/files/api && ${MAKE} build
+	ansible-playbook -i ./inventory/prod.yml install.yml
