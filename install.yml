@@ -4,4 +4,21 @@
   roles:
     - docker
     - docker-clean
+
+- name: "Install france_connect_mock"
+  hosts: france_connect_mock
+  become: yes
+  roles:
     - lemonldap
+
+- name: "Install DB"
+  hosts: db
+  become: yes
+  roles:
+    - hexatransit-db
+
+- name: "Install App"
+  hosts: app
+  become: yes
+  roles:
+    - hexatransit-app
