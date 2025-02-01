@@ -1,14 +1,14 @@
 - name: "[MAIN] Remove Docker Compose files"
   ansible.builtin.file:
     state: absent
-    path: "/docker/lemonldap/"
+    path: "~/lemonldap/"
 
 - name: "[MAIN] Copy Docker Compose files"
   ansible.builtin.copy:
-    dest: "/docker/lemonldap/"
+    dest: "~/lemonldap/"
     src: "../files/"
 
 - name: "[MAIN] up compose"
   community.docker.docker_compose_v2:
-    project_src: "/docker/lemonldap/"
+    project_src: "~/lemonldap/"
     remove_orphans: yes

@@ -1,14 +1,14 @@
 - name: "[MAIN] Remove Docker Compose files"
   ansible.builtin.file:
     state: absent
-    path: "/docker/hexatransit-db/"
+    path: "~/hexatransit-db/"
 
 - name: "[MAIN] Copy Docker Compose files"
   ansible.builtin.copy:
-    dest: "/docker/hexatransit-db/"
+    dest: "~/hexatransit-db/"
     src: "../files/"
 
 - name: "[MAIN] up compose"
   community.docker.docker_compose_v2:
-    project_src: "/docker/hexatransit-db/"
+    project_src: "~/hexatransit-db/"
     remove_orphans: yes
