@@ -5,4 +5,4 @@ venv:
 
 prod:
 	cd roles/hexatransit-app/files/api && ${MAKE} build
-	ansible-playbook -i ./inventory/prod.yml install.yml
+	ansible-playbook -i inventories/prototype/hosts install.yml
