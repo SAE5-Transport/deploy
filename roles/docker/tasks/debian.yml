@@ -1,4 +1,4 @@
-- name: "[DOCKER/DEBIAN] Install Docker dependencies"
+- name: "[DEBIAN] Install Docker dependencies"
   ansible.builtin.apt:
     install_recommends: false
     name:

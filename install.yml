@@ -11,11 +11,11 @@
     - lemonldap
 
 - name: "Install DB"
-  hosts: db
+  hosts: hexatransit_db
   roles:
     - hexatransit-db
 
 - name: "Install App"
-  hosts: app
+  hosts: hexatransit_app
   roles:
     - hexatransit-app

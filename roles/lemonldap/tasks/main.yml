@@ -7,6 +7,10 @@
   ansible.builtin.copy:
     dest: "~/lemonldap/"
     src: "../files/"
+  
+- ansible.builtin.template:
+       src: "../templates/docker-compose.yml.j2"
+       dest: "~/lemonldap/docker-compose.yml"
 
 - name: "[MAIN] up compose"
   community.docker.docker_compose_v2:

@@ -15,7 +15,7 @@ in ur local need a venv with ansible : `pip install ansible`
 in [prod.yml](./inventory/prod.yml), change IP to ur ip
 
 ```
-ansible-playbook -i ./inventory/prod.yml install.yml
+$ ansible-playbook -i inventories/prototype/hosts install.yml
 ```
 
 ### Feat:
@@ -26,17 +26,17 @@ ansible-playbook -i ./inventory/prod.yml install.yml
 
 + Openid
 + address : 
-    * [ ] street_address
-    * [ ] locality
-    * [ ] region
-    * [ ] postal_code
-    * [ ] country
+    * [x] street_address
+    * [x] locality
+    * [x] region
+    * [x] postal_code
+    * [x] country
 + email : 
     * [x] email 
     * [x] email_verified
 + phone : 
-    * [ ] phone_number 
-    * [ ] phone_number_verified
+    * [x] phone_number 
+    * [x] phone_number_verified
 + profile : 
     * [x] name 
     * [x] family_name 

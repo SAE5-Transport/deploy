@@ -2,13 +2,13 @@ services:
   db:
     build: ./pg
     environment:
-      POSTGRES_USER: lemonldap
-      POSTGRES_PASSWORD: lemonldap
-      POSTGRES_DB: lemonldap
+      POSTGRES_USER: {{ db_user }}
+      POSTGRES_PASSWORD: {{ db_password }}
+      POSTGRES_DB: {{ db_db }}
     ports:
-      - "5432:5432"
+      - "{{ db_port }}:5432"
     volumes:
-      - postgresql:/var/lib/postgresql/data
+      - lemonldap_db:/var/lib/postgresql/data
     restart: always
     healthcheck:
       test: ["CMD-SHELL", "pg_isready"]
@@ -19,10 +19,10 @@ services:
   llng:
     build: ./llng
     ports:
-      - "80:80"
+      - "{{ llng_port }}:80"
     restart: always
     depends_on:
       db:
         condition: service_healthy
 volumes: 
-  postgresql:
+  lemonldap_db:

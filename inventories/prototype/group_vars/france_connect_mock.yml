@@ -1,0 +1,5 @@
+llng_port: 80 
+db_port: 5432
+db_user: lemonldap
+db_password: lemonldap
+db_db: lemonldap
