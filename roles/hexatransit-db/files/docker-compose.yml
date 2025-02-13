@@ -22,6 +22,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: hexatransit
       MONGO_INITDB_ROOT_PASSWORD: hexatransit
+      MONGO_INITDB_DATABASE: hexatransit
     ports:
       - "27017:27017"
     volumes:
