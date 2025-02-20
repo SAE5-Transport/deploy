@@ -1,3 +1,10 @@
+- name: "[MAIN] Stop & Remove Images/Volumes"
+  community.docker.docker_compose_v2:
+    project_src: "~/lemonldap/"
+    state: absent
+    remove_images: local
+    remove_volumes: yes
+
 - name: "[MAIN] Remove Docker Compose files"
   ansible.builtin.file:
     state: absent

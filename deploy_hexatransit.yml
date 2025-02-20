@@ -1,0 +1,9 @@
+- name: "Install DB"
+  hosts: hexatransit_db
+  roles:
+    - hexatransit-db
+
+- name: "Install App"
+  hosts: hexatransit_app
+  roles:
+    - hexatransit-app
