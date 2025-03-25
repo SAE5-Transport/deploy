@@ -11,4 +11,4 @@ deploy:
 
 deploy_app:
 	cd roles/hexatransit-app/files/api && ${MAKE} build
-	ansible-playbook -i inventories/${PL}/hosts deploy.yml --limit hexatransit_db,hexatransit_app
+	ansible-playbook --limit hexatransit_db,hexatransit_app --check -i inventories/${PL}/hosts deploy.yml

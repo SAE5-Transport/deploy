@@ -1,19 +1,23 @@
-prod:
-  hosts:
-    vm1:
-
 docker_hosts:
   children:
-    prod:
+    france_connect_mock:
+    hexatransit_db:
+    hexatransit_app:
 
 france_connect_mock:
-  children:
-    prod:
+  hosts:
+    vm1_france_connect_mock:
+      ansible_host: 20.199.76.32
+      ansible_user: hexatransit
 
 hexatransit_db:
-  children:
-    prod:
+  hosts:
+    vm1_hexatransit_db:
+      ansible_host: 20.199.76.32
+      ansible_user: hexatransit
 
 hexatransit_app:
-  children:
-    prod:
+  hosts:
+    vm3_hexatransit_app:
+      ansible_host: 20.199.76.32
+      ansible_user: hexatransit
