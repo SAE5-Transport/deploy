@@ -3,19 +3,3 @@
   become: true
   roles:
     - docker
-    - docker-clean
-
-- name: "Install france_connect_mock"
-  hosts: france_connect_mock
-  roles:
-    - lemonldap
-
-- name: "Install DB"
-  hosts: hexatransit_db
-  roles:
-    - hexatransit-db
-
-- name: "Install App"
-  hosts: hexatransit_app
-  roles:
-    - hexatransit-app

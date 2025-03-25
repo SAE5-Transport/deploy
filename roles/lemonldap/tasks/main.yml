@@ -1,9 +1,15 @@
+- name: "[MAIN] Check if Docker Compose project exists"
+  stat:
+    path: "~/hexatransit-app/docker-compose.yml"
+  register: compose_file
+
 - name: "[MAIN] Stop & Remove Images/Volumes"
   community.docker.docker_compose_v2:
     project_src: "~/lemonldap/"
     state: absent
     remove_images: local
     remove_volumes: yes
+  when: compose_file.stat.exists
 
 - name: "[MAIN] Remove Docker Compose files"
   ansible.builtin.file:
@@ -14,8 +20,9 @@
   ansible.builtin.copy:
     dest: "~/lemonldap/"
     src: "../files/"
-  
-- ansible.builtin.template:
+
+- name: "[MAIN] Copy Docker Compose"
+  ansible.builtin.template:
        src: "../templates/docker-compose.yml.j2"
        dest: "~/lemonldap/docker-compose.yml"
 

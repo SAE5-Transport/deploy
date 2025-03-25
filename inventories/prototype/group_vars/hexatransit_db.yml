@@ -1,0 +1,8 @@
+postgres_user: hexatransit
+postgres_password: hexatransit
+postgres_db: hexatransit
+postgres_port: 2345
+mongodb_user: hexatransit
+mongodb_password: hexatransit
+mongodb_db: hexatransit
+mongodb_port: 27017

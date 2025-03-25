@@ -1,3 +1,8 @@
+- name: "Install france_connect_mock"
+  hosts: france_connect_mock
+  roles:
+    - lemonldap
+
 - name: "Install DB"
   hosts: hexatransit_db
   roles:

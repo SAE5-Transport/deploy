@@ -1,0 +1,24 @@
+services:
+  api:
+    build: ./api
+    environment:
+      APP_HOST: {{ api_host }}
+      APP_PORT: {{ api_port }}
+      POSTGRES_USER: {{ postgres_user }}
+      POSTGRES_PASSWORD: {{ postgres_password }}
+      POSTGRES_DB: {{ postgres_db }}
+      POSTGRES_HOST: {{ postgres_host }}
+      POSTGRES_PORT: {{ postgres_port }}
+      MONGO_USER: {{ mongodb_user }}
+      MONGO_PASSWORD: {{ mongodb_password }}
+      MONGO_DB: {{ mongodb_db }}
+      MONGO_HOST: {{ mongodb_host }}
+      MONGO_PORT: {{ mongodb_port }}
+    ports:
+      - "{{ api_port }}:5000"
+    restart: always
+  rpa:
+    build: ./rpa
+    ports:
+      - "{{ rpa_port }}:80"
+    restart: always

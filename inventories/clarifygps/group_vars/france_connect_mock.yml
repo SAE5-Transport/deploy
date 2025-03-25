@@ -1,0 +1,10 @@
+llng_port: 4827 
+llng_ssodomain: hexatransit.clarifygdps.com
+llng_loglevel: warn
+llng_fatcgi_port: 9000
+llng_portal: auth.hexatransit.clarifygdps.com
+llng_manager: manager.hexatransit.clarifygdps.com
+db_port: 5432
+db_user: lemonldap
+db_password: lemonldap
+db_db: lemonldap

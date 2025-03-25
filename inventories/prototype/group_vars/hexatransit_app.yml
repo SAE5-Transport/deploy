@@ -1,0 +1,13 @@
+rpa_port: 8080
+api_host: localhost
+api_port: 5000
+postgres_user: hexatransit
+postgres_password: hexatransit
+postgres_db: hexatransit
+postgres_host: 172.17.0.1
+postgres_port: 2345
+mongodb_user: hexatransit
+mongodb_password: hexatransit
+mongodb_db: hexatransit
+mongodb_host: 172.17.0.1
+mongodb_port: 27017
