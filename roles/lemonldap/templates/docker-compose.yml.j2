@@ -20,9 +20,9 @@ services:
     build: 
       context: ./llng
       args:
-        LLNG_MANAGER: {{ llng_ssodomain }}
+        LLNG_MANAGER: {{ llng_manager }}
         LLNG_PORTAL: {{ llng_portal }}
-        LLNG_SSODOMAIN: {{ llng_manager }}
+        LLNG_SSODOMAIN: {{ llng_ssodomain }}
     environment:
       SSODOMAIN: {{ llng_ssodomain }}
       LOGLEVEL: {{ llng_loglevel }}
