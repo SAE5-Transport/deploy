@@ -1,6 +1,6 @@
 - name: "[MAIN] Check if Docker Compose project exists"
   stat:
-    path: "~/hexatransit-app/docker-compose.yml"
+    path: "~/lemonldap/docker-compose.yml"
   register: compose_file
 
 - name: "[MAIN] Stop & Remove Images/Volumes"

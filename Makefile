@@ -12,3 +12,7 @@ deploy:
 deploy_app:
 	cd roles/hexatransit-app/files/api && ${MAKE} build
 	ansible-playbook --limit hexatransit_db,hexatransit_app --check -i inventories/${PL}/hosts deploy.yml
+
+deploy_auth:
+	cd roles/hexatransit-app/files/api && ${MAKE} build
+	ansible-playbook --limit france_connect_mock --check -i inventories/${PL}/hosts deploy.yml
