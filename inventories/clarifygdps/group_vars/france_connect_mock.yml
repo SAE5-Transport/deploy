@@ -4,7 +4,3 @@ llng_loglevel: debug
 llng_fatcgi_port: 9000
 llng_portal: auth.hexatransit.clarifygdps.com
 llng_manager: manager.hexatransit.clarifygdps.com
-db_port: 5432
-db_user: lemonldap
-db_password: lemonldap
-db_db: lemonldap

@@ -173,7 +173,7 @@
    "cspStyle" : "'self'",
    "customAddParams" : {},
    "customPluginsParams" : {},
-   "dbiAuthChain" : "dbi:Pg:database=lemonldap;host=lemonldap-db-1;port=5432;",
+   "dbiAuthChain" : "dbi:Pg:database=lemonldap;host=db;port=5432;",
    "dbiAuthLoginCol" : "username",
    "dbiAuthPassword" : "lemonldap",
    "dbiAuthPasswordCol" : "password",

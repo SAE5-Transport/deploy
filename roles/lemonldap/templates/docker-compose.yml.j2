@@ -2,11 +2,9 @@ services:
   db:
     build: ./pg
     environment:
-      POSTGRES_USER: {{ db_user }}
-      POSTGRES_PASSWORD: {{ db_password }}
-      POSTGRES_DB: {{ db_db }}
-    ports:
-      - "{{ db_port }}:5432"
+      POSTGRES_USER: lemonldap
+      POSTGRES_PASSWORD: lemonldap
+      POSTGRES_DB: lemonldap
     volumes:
       - lemonldap_db:/var/lib/postgresql/data
     restart: always
