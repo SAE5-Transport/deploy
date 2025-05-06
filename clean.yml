@@ -1,4 +1,4 @@
-- name: "clean"
+- name: "test"
   hosts: docker_hosts
   roles:
     - docker-clean
