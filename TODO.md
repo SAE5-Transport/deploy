@@ -1,4 +1,6 @@
-- Add users Users in lemonldap
-- Add kafka
+- Auth:
+    - Improve
+    - Unable to create account
+    - hash password
 - API use WSGI
 - Encrypte sensible variables

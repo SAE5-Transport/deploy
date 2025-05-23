@@ -1,6 +1,0 @@
-llng_port: 80
-llng_ssodomain: 20-199-76-32.nip.io
-llng_loglevel: warn
-llng_fatcgi_port: 9000
-llng_portal: auth.20-199-76-32.nip.io
-llng_manager: manager.20-199-76-32.nip.io
