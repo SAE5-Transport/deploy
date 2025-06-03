@@ -11,5 +11,3 @@ mongodb_password: hexatransit
 mongodb_db: hexatransit
 mongodb_host: 172.17.0.1
 mongodb_port: 27017
-broker_port: 9092
-broker_domain: hexatransit.clarifygdps.com
