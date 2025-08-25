@@ -1,6 +1,0 @@
-llng_port: 4827 
-llng_ssodomain: hexatransit.clarifygdps.com
-llng_loglevel: debug
-llng_fatcgi_port: 9000
-llng_portal: auth.hexatransit.clarifygdps.com
-llng_manager: manager.hexatransit.clarifygdps.com

@@ -1,0 +1,28 @@
+france_connect_mock:
+  hosts:
+    vm1_france_connect_mock:
+      ansible_host: XXX.XXX.XXX.XXX
+      ansible_user: xxx
+
+hexatransit_db:
+  hosts:
+    vm1_hexatransit_db:
+      ansible_host: XXX.XXX.XXX.XXX
+      ansible_user: xxx
+
+hexatransit_app:
+  hosts:
+    vm3_hexatransit_app:
+      ansible_host: XXX.XXX.XXX.XXX
+      ansible_user: xxx
+
+localhost:
+   vars:
+     ansible_connection: local
+     ansible_python_interpreter: "{{ansible_playbook_python}}"
+
+docker_hosts:
+  children:
+    france_connect_mock:
+    hexatransit_db:
+    hexatransit_app:
