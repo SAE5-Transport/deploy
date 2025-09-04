@@ -1,0 +1,40 @@
+services:
+  postgres:
+    build: ./pg
+    environment:
+      POSTGRES_USER: {{ postgres_user }}
+      POSTGRES_PASSWORD: {{ postgres_password }}
+      POSTGRES_DB: {{ postgres_db }}
+    ports:
+      - "{{ postgres_port }}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d hexatransit -U hexatransit"]
+      interval: 10s
+      timeout: 30s
+      retries: 5
+      start_period: 5s
+
+  mongo:
+    image: mongo:8.0.4-noble
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: {{ mongodb_user }}
+      MONGO_INITDB_ROOT_PASSWORD: {{ mongodb_password }}
+      MONGO_INITDB_DATABASE: {{ mongodb_db }}
+    ports:
+      - "{{ mongodb_port }}:27017"
+    volumes:
+      - mongo_data:/data/db
+    restart: always
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.runCommand('ping')"]
+      interval: 10s
+      timeout: 30s
+      retries: 5
+      start_period: 5s
+      
+volumes: 
+  postgres_data:
+  mongo_data:

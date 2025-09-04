@@ -1,0 +1,13 @@
+rpa_port: xxx
+api_host: localhost
+api_port: 5000
+postgres_user: user
+postgres_password: password
+postgres_db: dbname
+postgres_host: XXX.XXX.XXX.XXX
+postgres_port: xxx
+mongodb_user: user
+mongodb_password: password
+mongodb_db: dbname
+mongodb_host: XXX.XXX.XXX.XXX
+mongodb_port: xxx

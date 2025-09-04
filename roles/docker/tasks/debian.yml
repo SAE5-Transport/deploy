@@ -1,4 +1,4 @@
-- name: "[DOCKER/DEBIAN] Install Docker dependencies"
+- name: "[DEBIAN] Install Docker dependencies"
   ansible.builtin.apt:
     install_recommends: false
     name:
@@ -8,20 +8,20 @@
       - python3-apt
     update_cache: true
 
-- name: "[DOCKER/DEBIAN] get docker gpg key"
+- name: "[DEBIAN] get docker gpg key"
   ansible.builtin.get_url:
     url: https://download.docker.com/linux/debian/gpg
     dest: /etc/apt/keyrings/docker.asc
     mode: 0755
     force: true
 
-- name: " [DOCKER/DEBIAN] Add repository"
+- name: " [DEBIAN] Add repository"
   ansible.builtin.apt_repository:
     repo: "deb [signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable" 
     filename: docker
     mode: 0644
 
-- name: "[DOCKER/DEBIAN] Install Docker"
+- name: "[DEBIAN] Install Docker"
   ansible.builtin.apt:
     install_recommends: false
     name:
@@ -32,7 +32,7 @@
       - docker-compose-plugin
     update_cache: true
 
-- name: "[DOCKER/DEBIAN] Start & Enable docker"
+- name: "[DEBIAN] Start & Enable docker"
   ansible.builtin.service:
     name: docker
     state: started

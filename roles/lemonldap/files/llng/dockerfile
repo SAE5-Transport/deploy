@@ -2,13 +2,15 @@ FROM coudot/lemonldap-ng:2.20.1
 
 EXPOSE 80
 
-ENV LOGLEVEL "debug"
+COPY config/* /var/lib/lemonldap-ng/conf
+COPY lemonldap-ng.ini /etc/lemonldap-ng
 
-COPY ./config/* /var/lib/lemonldap-ng/conf
-COPY ./lemonldap-ng.ini /etc/lemonldap-ng/lemonldap-ng.ini
-
-# RUN sed -i -e 's/example\.com/konet.duckdns.org/g' \
-#     /etc/lemonldap-ng/* /var/lib/lemonldap-ng/conf/lmConf-*
-
-RUN sed -i -e 's/example\.com/20-199-76-32.nip.io/g' \
+ARG LLNG_MANAGER
+ARG LLNG_PORTAL
+ARG LLNG_SSODOMAIN
+RUN sed -i -e "s/manager\.example\.com/${LLNG_MANAGER}/g" \
+    /etc/lemonldap-ng/* /var/lib/lemonldap-ng/conf/lmConf-* \
+    && sed -i -e "s/auth\.example\.com/${LLNG_PORTAL}/g" \
+    /etc/lemonldap-ng/* /var/lib/lemonldap-ng/conf/lmConf-* \
+    && sed -i -e "s/example\.com/${LLNG_SSODOMAIN}  /g" \
     /etc/lemonldap-ng/* /var/lib/lemonldap-ng/conf/lmConf-*

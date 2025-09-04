@@ -12,14 +12,8 @@ in ur local need a venv with ansible : `pip install ansible`
 
 ### Launch
 
-in [hosts.yml](./inventory/hosts.yml), change IP to ur ip
+in [prod.yml](./inventory/prod.yml), change IP to ur ip
 
 ```
-ansible-playbook -i ./inventory/hosts.yml install.yml
+$ ansible-playbook -i inventories/prototype/hosts install.yml
 ```
-
-### Feat:
-
-#### Lemonldap : Auth
-
-- Manager: Admin/admin

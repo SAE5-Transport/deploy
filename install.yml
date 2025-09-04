@@ -1,7 +1,5 @@
-- name: "Install docker"
+- name: "Install docker & clean"
   hosts: docker_hosts
-  become: yes
+  become: true
   roles:
     - docker
-    - docker-clean
-    - lemonldap

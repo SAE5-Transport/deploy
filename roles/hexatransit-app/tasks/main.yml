@@ -1,11 +1,11 @@
 - name: "[MAIN] Check if Docker Compose project exists"
   stat:
-    path: "~/lemonldap/docker-compose.yml"
+    path: "~/hexatransit-app/docker-compose.yml"
   register: compose_file
 
 - name: "[MAIN] Stop & Remove Images/Volumes"
   community.docker.docker_compose_v2:
-    project_src: "~/lemonldap/"
+    project_src: "~/hexatransit-app/"
     state: absent
     remove_images: local
     remove_volumes: yes
@@ -14,19 +14,19 @@
 - name: "[MAIN] Remove Docker Compose files"
   ansible.builtin.file:
     state: absent
-    path: "~/lemonldap/"
+    path: "~/hexatransit-app/"
 
 - name: "[MAIN] Copy Docker Compose files"
   ansible.builtin.copy:
-    dest: "~/lemonldap/"
+    dest: "~/hexatransit-app/"
     src: "../files/"
 
 - name: "[MAIN] Copy Docker Compose"
   ansible.builtin.template:
        src: "../templates/docker-compose.yml.j2"
-       dest: "~/lemonldap/docker-compose.yml"
+       dest: "~/hexatransit-app/docker-compose.yml"
 
 - name: "[MAIN] up compose"
   community.docker.docker_compose_v2:
-    project_src: "~/lemonldap/"
+    project_src: "~/hexatransit-app/"
     remove_orphans: yes

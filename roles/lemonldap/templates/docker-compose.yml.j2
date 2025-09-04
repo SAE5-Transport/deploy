@@ -1,0 +1,37 @@
+services:
+  db:
+    build: ./pg
+    environment:
+      POSTGRES_USER: lemonldap
+      POSTGRES_PASSWORD: lemonldap
+      POSTGRES_DB: lemonldap
+    volumes:
+      - lemonldap_db:/var/lib/postgresql/data
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 30s
+      retries: 5
+
+  llng:
+    build: 
+      context: ./llng
+      args:
+        LLNG_MANAGER: {{ llng_manager }}
+        LLNG_PORTAL: {{ llng_portal }}
+        LLNG_SSODOMAIN: {{ llng_ssodomain }}
+    environment:
+      SSODOMAIN: {{ llng_ssodomain }}
+      LOGLEVEL: {{ llng_loglevel }}
+      FASTCGI_LISTEN_PORT: {{ llng_fatcgi_port }}
+      PORTAL_HOSTNAME: {{ llng_portal }}
+      MANAGER_HOSTNAME: {{ llng_manager }}
+    ports:
+      - "{{ llng_port }}:80"
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+volumes: 
+  lemonldap_db:

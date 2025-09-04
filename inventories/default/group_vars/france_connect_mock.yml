@@ -1,0 +1,6 @@
+llng_port: xxx
+llng_ssodomain: example.com
+llng_loglevel: debug
+llng_fatcgi_port: xxx
+llng_portal: auth.example.com
+llng_manager: example.com

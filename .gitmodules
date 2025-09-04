@@ -1,0 +1,4 @@
+[submodule "roles/hexatransit-app/files/api"]
+	path = roles/hexatransit-app/files/api
+	url = https://github.com/SAE5-Transport/API
+	branch = dev

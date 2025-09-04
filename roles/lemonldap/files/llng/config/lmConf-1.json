@@ -20,7 +20,7 @@
                "display" : "auto",
                "logo" : "demo.png",
                "name" : "Application Test 1",
-               "uri" : "http://test1.20-199-76-32.nip.io/"
+               "uri" : "http://test1.example.com/"
             },
             "type" : "application"
          },
@@ -30,7 +30,7 @@
                "display" : "auto",
                "logo" : "thumbnail.png",
                "name" : "Application Test 2",
-               "uri" : "http://test2.20-199-76-32.nip.io/"
+               "uri" : "http://test2.example.com/"
             },
             "type" : "application"
          },
@@ -44,7 +44,7 @@
                "display" : "auto",
                "logo" : "configure.png",
                "name" : "WebSSO Manager",
-               "uri" : "http://manager.20-199-76-32.nip.io/manager.html"
+               "uri" : "http://manager.example.com/manager.html"
             },
             "type" : "application"
          },
@@ -54,7 +54,7 @@
                "display" : "auto",
                "logo" : "database.png",
                "name" : "Notifications Explorer",
-               "uri" : "http://manager.20-199-76-32.nip.io/notifications.html"
+               "uri" : "http://manager.example.com/notifications.html"
             },
             "type" : "application"
          },
@@ -64,7 +64,7 @@
                "display" : "auto",
                "logo" : "database.png",
                "name" : "Sessions Explorer",
-               "uri" : "http://manager.20-199-76-32.nip.io/sessions.html"
+               "uri" : "http://manager.example.com/sessions.html"
             },
             "type" : "application"
          },
@@ -78,7 +78,7 @@
                "display" : "on",
                "logo" : "help.png",
                "name" : "Local documentation",
-               "uri" : "http://manager.20-199-76-32.nip.io/doc/"
+               "uri" : "http://manager.example.com/doc/"
             },
             "type" : "application"
          },
@@ -126,9 +126,9 @@
    "certificateResetByMailValidityDelay" : 0,
    "cfgAuthor" : "admin",
    "cfgAuthorIP" : "193.48.143.174",
-   "cfgDate" : 1737026145,
+   "cfgDate" : 1738074148,
    "cfgLog" : "",
-   "cfgNum" : "10",
+   "cfgNum" : "4",
    "cfgVersion" : "2.20.1",
    "checkDevOpsCheckSessionAttributes" : 1,
    "checkDevOpsDisplayNormalizedHeaders" : 1,
@@ -173,7 +173,7 @@
    "cspStyle" : "'self'",
    "customAddParams" : {},
    "customPluginsParams" : {},
-   "dbiAuthChain" : "dbi:Pg:database=lemonldap;host=compose-db-1;port=5432;",
+   "dbiAuthChain" : "dbi:Pg:database=lemonldap;host=db;port=5432;",
    "dbiAuthLoginCol" : "username",
    "dbiAuthPassword" : "lemonldap",
    "dbiAuthPasswordCol" : "password",
@@ -195,13 +195,38 @@
       "uid" : "uid"
    },
    "displaySessionId" : 1,
-   "domain" : "20-199-76-32.nip.io",
+   "domain" : "example.com",
    "eventQueueName" : "llng_events",
    "exportedHeaders" : {
-      "auth.20-199-76-32.nip.io" : {},
-      "manager.20-199-76-32.nip.io" : {}
+      "auth.example.com" : {},
+      "manager.example.com" : {}
    },
-   "exportedVars" : {},
+   "exportedVars" : {
+      "birthdate": "birthdate",
+      "country" : "country",
+      "created_at" : "created_at",
+      "email" : "email",
+      "email_verified" : "email_verified",
+      "family_name" : "family_name",
+      "gender" : "gender",
+      "given_name" : "given_name",
+      "locale" : "locale",
+      "locality" : "locality",
+      "middle_name" : "middle_name",
+      "name" : "name",
+      "nickname" : "nickname",
+      "phone_number" : "phone_number",
+      "phone_number_verified" : "phone_number_verified",
+      "picture" : "picture",
+      "postal_code" : "postal_code",
+      "preferred_username" : "preferred_username",
+      "profile" : "profile",
+      "region" : "region",
+      "street_address" : "street_address",
+      "updated_at" : "updated_at",
+      "website" : "website",
+      "zoneinfo" : "zoneinfo"
+   },
    "ext2fActivation" : 0,
    "ext2fCodeActivation" : "\\d{6}",
    "facebookAuthnLevel" : 1,
@@ -298,12 +323,12 @@
    },
    "locationDetectGeoIpLanguages" : "en, fr",
    "locationRules" : {
-      "auth.20-199-76-32.nip.io" : {
+      "auth.example.com" : {
          "(?#checkUser)^/checkuser" : "inGroup(\"timelords\")",
          "(?#errors)^/lmerror/" : "accept",
          "default" : "accept"
       },
-      "manager.20-199-76-32.nip.io" : {
+      "manager.example.com" : {
          "(?#Configuration)^/(.*?\\.(fcgi|psgi)/)?(manager\\.html|confs|prx/|$)" : "inGroup(\"timelords\")",
          "(?#Notifications)/(.*?\\.(fcgi|psgi)/)?notifications" : "inGroup(\"timelords\")",
          "(?#Sessions)/(.*?\\.(fcgi|psgi)/)?sessions" : "inGroup(\"timelords\")",
@@ -323,7 +348,7 @@
    "mail2fActivation" : 0,
    "mail2fCodeRegex" : "\\d{6}",
    "mailCharset" : "utf-8",
-   "mailFrom" : "noreply@20-199-76-32.nip.io",
+   "mailFrom" : "noreply@example.com",
    "mailSessionKey" : "mail",
    "mailTimeout" : 0,
    "managerDn" : "",
@@ -362,9 +387,30 @@
    "oidcRPCallbackGetParam" : "openidconnectcallback",
    "oidcRPMetaDataExportedVars" : {
       "hexatransit" : {
+         "birthdate" : "birthdate",
+         "country" : "country",
+         "created_at" : "created_at",
          "email" : "email",
+         "email_verified" : "email_verified",
+         "family_name" : "family_name",
+         "gender" : "gender",
+         "given_name" : "given_name",
+         "locale" : "locale",
+         "locality" : "locality",
+         "middle_name" : "middle_name",
          "name" : "name",
-         "preferred_username" : "username"
+         "nickname" : "nickname",
+         "phone_number" : "phone_number",
+         "phone_number_verified" : "phone_number_verified",
+         "picture" : "picture",
+         "postal_code" : "postal_code",
+         "preferred_username" : "preferred_username",
+         "profile" : "profile",
+         "region" : "region",
+         "street_address" : "street_address",
+         "updated_at" : "updated_at",
+         "website" : "website",
+         "zoneinfo" : "zoneinfo"
       }
    },
    "oidcRPMetaDataMacros" : {
@@ -495,7 +541,7 @@
       "LockDirectory" : "/var/lib/lemonldap-ng/psessions/lock"
    },
    "port" : -1,
-   "portal" : "http://auth.20-199-76-32.nip.io/",
+   "portal" : "http://auth.example.com/",
    "portalAntiFrame" : 1,
    "portalCheckLogins" : 1,
    "portalDisplayAppslist" : 1,
@@ -518,8 +564,8 @@
    "portalSkinRules" : {},
    "portalUserAttr" : "_user",
    "post" : {
-      "auth.20-199-76-32.nip.io" : {},
-      "manager.20-199-76-32.nip.io" : {}
+      "auth.example.com" : {},
+      "manager.example.com" : {}
    },
    "proxyAuthServiceChoiceParam" : "lmAuth",
    "proxyAuthnLevel" : 2,
@@ -535,7 +581,7 @@
    "registerTimeout" : 0,
    "reloadTimeout" : 5,
    "reloadUrls" : {
-      "localhost" : "http://reload.20-199-76-32.nip.io/reload"
+      "localhost" : "http://reload.example.com/reload"
    },
    "rememberAuthChoiceRule" : 0,
    "rememberCookieName" : "llngrememberauthchoice",
@@ -543,8 +589,8 @@
    "rememberTimer" : 5,
    "remoteGlobalStorage" : "Lemonldap::NG::Common::Apache::Session::SOAP",
    "remoteGlobalStorageOptions" : {
-      "ns" : "http://auth.20-199-76-32.nip.io/Lemonldap/NG/Common/PSGI/SOAPService",
-      "proxy" : "http://auth.20-199-76-32.nip.io/sessions"
+      "ns" : "http://auth.example.com/Lemonldap/NG/Common/PSGI/SOAPService",
+      "proxy" : "http://auth.example.com/sessions"
    },
    "requireToken" : 1,
    "rest2fActivation" : 0,
@@ -578,7 +624,7 @@
    "samlNameIDFormatMapX509" : "mail",
    "samlOrganizationDisplayName" : "Example",
    "samlOrganizationName" : "Example",
-   "samlOrganizationURL" : "http://www.20-199-76-32.nip.io",
+   "samlOrganizationURL" : "http://www.example.com",
    "samlOverrideIDPEntityID" : "",
    "samlRelayStateTimeout" : 600,
    "samlSPMetaDataExportedAttributes" : null,
@@ -639,8 +685,8 @@
    "userDB" : "DBI",
    "userPivot" : "username",
    "vhostOptions" : {
-      "auth.20-199-76-32.nip.io" : {},
-      "manager.20-199-76-32.nip.io" : {}
+      "auth.example.com" : {},
+      "manager.example.com" : {}
    },
    "viewerHiddenKeys" : "samlIDPMetaDataNodes, samlSPMetaDataNodes",
    "webIDAuthnLevel" : 1,
